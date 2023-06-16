@@ -157,7 +157,7 @@ class Distillation_Column(Environment[State]):
         #                                  )
 
         created_state = specs.BoundedArray(
-            shape=(PerCompoundProperty),
+            shape=(jnp.shape(PerCompoundProperty(n_Butane=jnp.zeros(N_max+1), n_Pentane=jnp.zeros(N_max+1), n_Octane=jnp.zeros(N_max+1)))),
             dtype=float,
             minimum=0,
             maximum=1,
@@ -165,7 +165,7 @@ class Distillation_Column(Environment[State]):
         )
 
         max_value = specs.BoundedArray(
-            shape=(PerCompoundProperty),
+            shape=(jnp.shape(PerCompoundProperty(n_Butane=jnp.array(0), n_Pentane=jnp.array(0), n_Octane=jnp.array(0)))),
             dtype=float,
             minimum=0,
             maximum=1,
